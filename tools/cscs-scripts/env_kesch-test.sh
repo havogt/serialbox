@@ -67,25 +67,22 @@ fi
 #------------------------------ Set environment --------------------------------
 
 module purge
-module load PE/18.12
+module load PE/17.06
 module load craype-network-infiniband
 module load craype-haswell
 module load gcc/5.4.0-2.26
 module load cmake
 
 if [ "$FC_COMPILER" = "pgfortran" ]; then
-  module load PrgEnv-pgi/18.10
-  module load netcdf-fortran/4.4.4-pgi-18.10-gcc-5.4.0-2.26
-  module load netcdf/4.6.1-pgi-18.10-gcc-5.4.0-2.26
+  module load PrgEnv-pgi/17.06
+  module load netcdf-fortran/4.4.4-pgi-18.5-gcc-5.4.0-2.26
 elif [ "$FC_COMPILER" = "ftn" ]; then
-  module load CrayCCE/.18.12
-  module load netCDF-Fortran/4.4.4-CrayCCE-18.12
-  module load netCDF/4.4.1.1-CrayCCE-18.12
+  module load CrayCCE/.17.06
+  module load netCDF-Fortran/4.4.4-CrayCCE-17.06
   export GCC_X86_64=$EBROOTGCCCORE
 else
   module load PrgEnv-gnu
   module load netcdf-fortran/4.4.4-gmvolf-17.02
-  module load netcdf/4.4.1.1-gmvolf-17.02
 fi
 
 export NETCDF_ROOT=${EBROOTNETCDF}
