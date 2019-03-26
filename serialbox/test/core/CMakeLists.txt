@@ -7,8 +7,6 @@
 ##
 ##===------------------------------------------------------------------------------------------===##
 
-cmake_minimum_required(VERSION 3.12)
-
 set(SOURCES
   UnittestArray.cpp
   UnittestException.cpp
@@ -53,6 +51,5 @@ set(SOURCES
   
 serialbox_add_unittest_executable(NAME SerialboxCppUnittest 
                                   SOURCES ${SOURCES} UnittestMain.cpp
-                                  LIBRARIES SerialboxStatic
 )
 
