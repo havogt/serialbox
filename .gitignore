@@ -39,3 +39,6 @@ gh-pages*
 /compile_commands.json
 /.clangd
 
+# python
+/.venv*
+/.env*

@@ -19,6 +19,10 @@
 #include "serialbox/core/Config.h"
 
 #if defined(SERIALBOX_USE_STD_EXPERIMENTAL_FILESYSTEM)
+#include <version>
+#if defined(__cpp_lib_filesystem) and __cpp_lib_filesystem >= 201703
+#include <filesystem>
+#else
 #include <experimental/filesystem>
 namespace filesystem = std::experimental::filesystem;
 
@@ -44,6 +48,7 @@ inline std::uintmax_t remove_all(const filesystem::path& p) {
   return result;
 }
 } // namespace serialbox
+#endif
 #elif defined(SERIALBOX_USE_BOOST_FILESYSTEM)
 #include <boost/filesystem.hpp>
 namespace filesystem = boost::filesystem;
